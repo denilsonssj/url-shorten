@@ -1,10 +1,15 @@
 import express from 'express';
 import 'dotenv/config';
 
-const app = express();
+import connection from './database/connection';
+import urlRoutes from './routes/url.routes';
 
+const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-export { app, port };
+app.use('/urls', urlRoutes);
+
+export { app, port, connection };
