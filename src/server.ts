@@ -1,6 +1,7 @@
-import { app, port, connection } from './app';
+import { PORT } from 'config/app';
+import { app, connection } from './app';
 
-app.listen(port, async () => {
+app.listen(PORT, async () => {
     await connection();
-    console.log(`Listening on port ${port}`);
+    console.log(`Listening on port ${PORT}`);
 });
